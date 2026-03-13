@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrickXcessories – Wall Mount Instructions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #E8252A; --red-dark: #C01C21; --yellow: #FFD600;
+      --black: #111111; --white: #FFFFFF; --gray-light: #F4F4F4;
+      --gray-mid: #DDDDDD; --gray-text: #555555;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+      --shadow-hover: 0 10px 36px rgba(0,0,0,0.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: var(--gray-light); color: var(--black); min-height: 100vh; }
+
+    /* HEADER */
+    header { background: var(--black); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-brick { width: 36px; height: 36px; background: var(--red); border-radius: 6px; position: relative; flex-shrink: 0; }
+    .logo-brick::before, .logo-brick::after { content: ''; position: absolute; top: -7px; width: 10px; height: 7px; background: var(--red); border-radius: 3px 3px 0 0; }
+    .logo-brick::before { left: 5px; } .logo-brick::after { right: 5px; }
+    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.05em; color: var(--white); line-height: 1; }
+    .logo-text span { color: var(--red); }
+    nav a { color: var(--gray-mid); text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    nav a:hover { color: var(--yellow); }
+
+    /* HERO */
+    .hero { background: var(--black); color: var(--white); padding: 64px 24px 56px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.06) 2px, transparent 2px); background-size: 28px 28px; pointer-events: none; }
+    .hero-tag { display: inline-block; background: var(--red); color: var(--white); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 8vw, 5rem); letter-spacing: 0.03em; line-height: 1.0; margin-bottom: 16px; }
+    .hero h1 em { color: var(--yellow); font-style: normal; }
+    .hero p { font-size: 1.05rem; color: #AAAAAA; max-width: 520px; margin: 0 auto 32px; line-height: 1.65; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 8px 18px; font-size: 0.8rem; font-weight: 700; color: #CCCCCC; letter-spacing: 0.04em; }
+
+    /* FILTER BAR */
+    .filter-bar { background: var(--white); border-bottom: 2px solid var(--gray-mid); padding: 0 24px; position: sticky; top: 64px; z-index: 90; }
+    .filter-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 12px 0; }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn { flex-shrink: 0; background: var(--gray-light); border: 2px solid transparent; border-radius: 100px; padding: 7px 18px; font-family: 'Nunito', sans-serif; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.04em; cursor: pointer; transition: all 0.18s; white-space: nowrap; color: var(--gray-text); }
+    .filter-btn:hover { border-color: var(--red); color: var(--red); }
+    .filter-btn.active { background: var(--red); color: var(--white); border-color: var(--red); }
+
+    /* SEARCH */
+    .search-wrap { max-width: 1200px; margin: 32px auto 0; padding: 0 24px; }
+    .search-box { position: relative; }
+    .search-box input { width: 100%; padding: 14px 20px 14px 48px; border: 2px solid var(--gray-mid); border-radius: var(--radius); font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 600; background: var(--white); outline: none; transition: border-color 0.2s; }
+    .search-box input:focus { border-color: var(--red); }
+    .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #AAAAAA; font-size: 1.1rem; pointer-events: none; }
+
+    /* GRID */
+    .grid-section { max-width: 1200px; margin: 28px auto 64px; padding: 0 24px; }
+    .section-label { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.06em; color: var(--black); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 3px solid var(--red); display: inline-block; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+
+    /* CARD */
+    .card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.22s ease, box-shadow 0.22s ease; text-decoration: none; color: inherit; display: block; animation: fadeUp 0.35s ease both; }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .card.hidden { display: none !important; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    .card-img-wrap { width: 100%; aspect-ratio: 1 / 1; position: relative; overflow: hidden; background: #e2e2e2; }
+    .card-img-wrap::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, #c8c8c8 2.5px, transparent 2.5px); background-size: 20px 20px; background-position: 4px 4px; }
+    .card-img-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 2.6rem; opacity: 0.3; z-index: 1; }
+    .card-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 2; }
+    .card-img.broken { display: none; }
+
+    .card-body { padding: 12px 14px 14px; }
+    .card-title { font-size: 0.82rem; font-weight: 800; line-height: 1.35; margin-bottom: 4px; color: var(--black); }
+    .card-set { font-size: 0.72rem; color: var(--gray-text); font-weight: 600; margin-bottom: 10px; }
+    .card-dl { display: flex; align-items: center; justify-content: center; gap: 6px; background: var(--red); color: var(--white); border-radius: 8px; padding: 8px 12px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; transition: background 0.18s; }
+    .card:hover .card-dl { background: var(--red-dark); }
+
+    .no-results { text-align: center; padding: 60px 20px; color: var(--gray-text); font-weight: 700; font-size: 1rem; display: none; grid-column: 1 / -1; }
+
+    /* FOOTER */
+    footer { background: var(--black); color: #888; text-align: center; padding: 28px 24px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; }
+    footer a { color: var(--red); text-decoration: none; }
+
+    @media (max-width: 600px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } .hero { padding: 44px 16px 40px; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-brick"></div>
+      <span class="logo-text">Brick<span>X</span>cessories</span>
+    </a>
+    <nav><a href="https://www.etsy.com/shop/BrickXcessories" target="_blank" rel="noopener">Shop on Etsy ↗</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">Free Assembly Instructions</div>
+  <h1>Wall Mount<br><em>Instructions</em></h1>
+  <p>Download the step-by-step instructions for your BrickXcessories wall mount kit. Find your set below and get building!</p>
+  <div class="hero-badges">
+    <span class="badge">📦 Ships in 1–3 Days</span>
+    <span class="badge">🖨️ 3D Printed in PETG</span>
+    <span class="badge">🔩 Hardware Included</span>
+    <span class="badge">📐 Level Included</span>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-cat="all">All Sets</button>
+    <button class="filter-btn" data-cat="star-wars">Star Wars</button>
+    <button class="filter-btn" data-cat="space">Space & NASA</button>
+    <button class="filter-btn" data-cat="marvel">Marvel</button>
+    <button class="filter-btn" data-cat="cars">Cars & Bikes</button>
+    <button class="filter-btn" data-cat="other">Other</button>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search" placeholder="Search by set name or number…" autocomplete="off" />
+  </div>
+</div>
+
+<div class="grid-section">
+  <div class="section-label" id="results-label">All Instructions</div>
+  <div class="grid" id="grid">
+
+    <a class="card" data-cat="space" data-name="saturn v 92176" href="https://geckobricks.com/wp-content/uploads/2023/01/Saturn-V-wall-mount-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/01/1-1-300x300.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Saturn V</div><div class="card-set">#92176</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="legacy saturn v 92176" href="https://geckobricks.com/wp-content/uploads/2022/07/Saturn-V-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/08/Page-1-217x300.png" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Legacy Saturn V</div><div class="card-set">#92176</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="hubble wall mount 10283" href="https://geckobricks.com/wp-content/uploads/2022/07/Hubble-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/07/1-1-300x300.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Hubble Wall Mount</div><div class="card-set">#10283</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="dc batman tumbler 76240" href="https://geckobricks.com/wp-content/uploads/2022/07/Tumbler-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/07/Tum-1.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Dc Batman Tumbler</div><div class="card-set">#76240</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="bmw m1000rr 42130" href="https://geckobricks.com/wp-content/uploads/2024/04/BMW-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/07/front-1.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Bmw M1000rr</div><div class="card-set">#42130</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="nasa space shuttle legacy 10283" href="https://geckobricks.com/wp-content/uploads/2025/05/shuttle-wall-mount-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/01/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Nasa Space Shuttle Legacy</div><div class="card-set">#10283</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="nasa space shuttle 10283" href="https://geckobricks.com/wp-content/uploads/2024/12/Space-Shuttle-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/12/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Nasa Space Shuttle</div><div class="card-set">#10283</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="the razor crest 75292" href="https://geckobricks.com/wp-content/uploads/2024/01/Razor-Crest-Instructions-1.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">The Razor Crest</div><div class="card-set">#75292</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="international space station 21321" href="https://geckobricks.com/wp-content/uploads/2023/10/ISS-wall-mount-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/10/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">International Space Station</div><div class="card-set">#21321</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="nasa lunar lander 10266" href="https://geckobricks.com/wp-content/uploads/2024/03/Lunar-Lander-Instructions-legacy.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/03/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Nasa Lunar Lander</div><div class="card-set">#10266</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="nasa space shuttle srb external tank 10283" href="https://geckobricks.com/wp-content/uploads/2025/03/SRB-Instruction-Guide.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/03/15-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Nasa Space Shuttle Srb External Tank</div><div class="card-set">#10283</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="republic gunship 75309" href="https://geckobricks.com/wp-content/uploads/2023/04/Republic-gunship-instruction.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/07/LAAT-1.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Republic Gunship</div><div class="card-set">#75309</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="guardians ship 76193" href="https://geckobricks.com/wp-content/uploads/2023/12/Guardians-Ship-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/12/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Guardians Ship</div><div class="card-set">#76193</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="back to the future time machine 10300" href="https://geckobricks.com/wp-content/uploads/2025/03/Back-To-The-Future-Time-Machine-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/08/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Back To The Future Time Machine</div><div class="card-set">#10300</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="starwars diorama collection" href="https://geckobricks.com/wp-content/uploads/2024/09/Diorama-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/08/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Starwars Diorama Collection</div><div class="card-set">#Various</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="t rex breakout 76956" href="https://geckobricks.com/wp-content/uploads/2024/09/Diorama-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/08/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">T Rex Breakout</div><div class="card-set">#76956</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="xl 15 spaceship 76832" href="https://geckobricks.com/wp-content/uploads/2022/07/XL-15-Spaceship-instruction-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/07/xl15-1.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Xl 15 Spaceship</div><div class="card-set">#76832</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="mandalorian n1 starship 75325" href="https://geckobricks.com/wp-content/uploads/2024/01/N-1-Starfighter-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-5-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mandalorian N1 Starship</div><div class="card-set">#75325</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="luke skywalkers landspeeder 75341" href="https://geckobricks.com/wp-content/uploads/2024/03/Land-Speeder-Instructions-legacy.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/03/1-4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Luke Skywalkers Landspeeder</div><div class="card-set">#75341</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="mclaren formula 1 race car 42141" href="https://geckobricks.com/wp-content/uploads/2024/03/Mclaren-F1-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/03/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mclaren Formula 1 Race Car</div><div class="card-set">#42141</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="imperial tie fighter 75300" href="https://geckobricks.com/wp-content/uploads/2024/01/Tie-Fighter-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-9-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Imperial Tie Fighter</div><div class="card-set">#75300</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="luke skywalkers x wing 75301" href="https://geckobricks.com/wp-content/uploads/2024/01/X-Wing-Instructions-1.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Luke Skywalkers X Wing</div><div class="card-set">#75301</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="r2 d2 73308 10225" href="https://geckobricks.com/wp-content/uploads/2022/09/R2-D2-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/09/4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">R2 D2</div><div class="card-set">#73308 / 10225</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="bd 1 75335" href="https://geckobricks.com/wp-content/uploads/2022/09/BD-1-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/09/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Bd 1</div><div class="card-set">#75335</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ghostbusters ecto 1 10274" href="https://geckobricks.com/wp-content/uploads/2024/05/Ecto-1-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/05/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ghostbusters Ecto 1</div><div class="card-set">#10274</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="galaxy explorer 10497" href="https://geckobricks.com/wp-content/uploads/2022/10/Galaxy-eplorer-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/10/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Galaxy Explorer</div><div class="card-set">#10497</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="the child 75318" href="https://geckobricks.com/wp-content/uploads/2023/04/The-Child-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/04/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">The Child</div><div class="card-set">#75318</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="porsche 911 rsr 42096" href="https://geckobricks.com/wp-content/uploads/2023/06/Porsche-911-RSR-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/10/3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Porsche 911 Rsr</div><div class="card-set">#42096</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ferrari 488 gte 42125" href="https://geckobricks.com/wp-content/uploads/2024/02/488_GTE_Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/10/3-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ferrari 488 Gte</div><div class="card-set">#42125</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="porsche 911 10295" href="https://geckobricks.com/wp-content/uploads/2022/10/911-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/10/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Porsche 911</div><div class="card-set">#10295</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="chevrolet camaro z28 10304" href="https://geckobricks.com/wp-content/uploads/2022/10/Chevrolet-Camaro-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/10/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Chevrolet Camaro Z28</div><div class="card-set">#10304</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ford mustang 10265" href="https://geckobricks.com/wp-content/uploads/2022/10/Ford-Mustang-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/10/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ford Mustang</div><div class="card-set">#10265</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="fiat 500 10271" href="https://geckobricks.com/wp-content/uploads/2022/10/Fiat-500-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/10/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Fiat 500</div><div class="card-set">#10271</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="optimus prime 10302" href="https://geckobricks.com/wp-content/uploads/2023/08/optimus-prime-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/11/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Optimus Prime</div><div class="card-set">#10302</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="land rover defender 42110" href="https://geckobricks.com/wp-content/uploads/2025/03/Defender-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/11/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Land Rover Defender</div><div class="card-set">#42110</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="voltron 21311" href="https://geckobricks.com/wp-content/uploads/2023/12/Voltron-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/12/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Voltron</div><div class="card-set">#21311</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="bugatti chiron 42083" href="https://geckobricks.com/wp-content/uploads/2023/10/bugatti_instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/11/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Bugatti Chiron</div><div class="card-set">#42083</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="lego helmet collection" href="https://geckobricks.com/wp-content/uploads/2024/02/Helmet-collection-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/08/10-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Lego Helmet Collection</div><div class="card-set">#Various</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="millennium falcon 75257" href="https://geckobricks.com/wp-content/uploads/2024/09/Falcon-Instructions-1.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/12/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Millennium Falcon</div><div class="card-set">#75257</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="boba fetts starship 75312" href="https://geckobricks.com/wp-content/uploads/2024/01/Boba-Fetts-Starship-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Boba Fetts Starship</div><div class="card-set">#75312</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="obi wans starship 75333" href="https://geckobricks.com/wp-content/uploads/2024/01/Obi-Wan-Starfighter-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-8-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Obi Wans Starship</div><div class="card-set">#75333</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ferrari daytona sp3 42143" href="https://geckobricks.com/wp-content/uploads/2023/10/daytona_instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/12/2-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ferrari Daytona Sp3</div><div class="card-set">#42143</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="lamborghini sian 42115" href="https://geckobricks.com/wp-content/uploads/2023/10/Lambo_Sian_Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2022/12/11-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Lamborghini Sian</div><div class="card-set">#42115</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="mclaren senna gtr 42123" href="https://geckobricks.com/wp-content/uploads/2023/01/McLAren-Senna-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/01/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mclaren Senna Gtr</div><div class="card-set">#42123</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="inquisitor transport scythe 75336" href="https://geckobricks.com/wp-content/uploads/2023/01/Instruction-for-Inquisitor-Scythe.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/01/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Inquisitor Transport Scythe</div><div class="card-set">#75336</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="the razor crest ucs 75331" href="https://geckobricks.com/wp-content/uploads/2024/04/Wall-mount-Instruction-for-The-razor-crest.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/01/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">The Razor Crest Ucs</div><div class="card-set">#75331</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="tie bomber 75347" href="https://geckobricks.com/wp-content/uploads/2024/01/Tie-Bomber-Instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-11-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Tie Bomber</div><div class="card-set">#75347</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="jeep wrangler 42122" href="https://geckobricks.com/wp-content/uploads/2023/01/Jeep-wall-mount-instruction-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/01/1-5-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Jeep Wrangler</div><div class="card-set">#42122</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="dodge charger 42111" href="https://geckobricks.com/wp-content/uploads/2023/01/Charger-wall-mount-instruction-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/01/1-6-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Dodge Charger</div><div class="card-set">#42111</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="6x6 volvo hauler 42114" href="https://geckobricks.com/wp-content/uploads/2023/02/Volvo-wall-mount-instruction-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/02/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">6x6 Volvo Hauler</div><div class="card-set">#42114</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="the avengers quinjet 76248" href="https://geckobricks.com/wp-content/uploads/2023/03/Quinjet-wall-mount-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/03/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">The Avengers Quinjet</div><div class="card-set">#76248</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ford gt 42154" href="https://geckobricks.com/wp-content/uploads/2023/03/Ford-GT-wall-mount-instruction.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/03/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ford Gt</div><div class="card-set">#42154</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="porsche 911 gt3 rs 42056" href="https://geckobricks.com/wp-content/uploads/2023/10/GT3_Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/03/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Porsche 911 Gt3 Rs</div><div class="card-set">#42056</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="porsche 99x 42137" href="https://geckobricks.com/wp-content/uploads/2023/03/Porsche-99X-wall-mount-instruction.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/03/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Porsche 99x</div><div class="card-set">#42137</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="speed champions" href="https://geckobricks.com/wp-content/uploads/2025/03/V2-Speed-champions-intructions-GeckoBricks.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/03/3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Speed Champions</div><div class="card-set">#Various</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ford raptor 42126" href="https://geckobricks.com/wp-content/uploads/2023/04/Ford-Raptor-Instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/04/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ford Raptor</div><div class="card-set">#42126</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="nascar next gen 42153" href="https://geckobricks.com/wp-content/uploads/2023/04/Nascar-Instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/04/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Nascar Next Gen</div><div class="card-set">#42153</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ford shelby gt500 42138" href="https://geckobricks.com/wp-content/uploads/2023/04/GT500-Instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/04/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ford Shelby Gt500</div><div class="card-set">#42138</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="bugatti bolide 42151" href="https://geckobricks.com/wp-content/uploads/2023/04/Bugatti-Bolide-Instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/04/1-4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Bugatti Bolide</div><div class="card-set">#42151</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="classic land rover 10317" href="https://geckobricks.com/wp-content/uploads/2023/05/Classic-Land-rover-instruction.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/05/3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Classic Land Rover</div><div class="card-set">#10317</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="mini cooper 10242" href="https://geckobricks.com/wp-content/uploads/2023/05/Mini-Cooper-instruction.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/05/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mini Cooper</div><div class="card-set">#10242</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ducati panigale v4 42107" href="https://geckobricks.com/wp-content/uploads/2025/01/Panigale-s-Instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/01/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ducati Panigale V4</div><div class="card-set">#42107</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ducati panigale v4s 42202" href="https://geckobricks.com/wp-content/uploads/2025/04/Panigale-Large-Instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/04/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ducati Panigale V4s</div><div class="card-set">#42202</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="i am groot 46217" href="https://geckobricks.com/wp-content/uploads/2024/05/Groot-wall-mount-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/05/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">I Am Groot</div><div class="card-set">#46217</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="executor 75356" href="https://geckobricks.com/wp-content/uploads/2024/04/Executor-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/05/11-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Executor</div><div class="card-set">#75356</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="tie interceptor 75348" href="https://geckobricks.com/wp-content/uploads/2024/01/Tie-Interceptor-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-10-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Tie Interceptor</div><div class="card-set">#75348</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="fang fighter 75348" href="https://geckobricks.com/wp-content/uploads/2024/01/Fang-Fighter-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-12-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Fang Fighter</div><div class="card-set">#75348</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="peugeot 9x8 hypercar 42156" href="https://geckobricks.com/wp-content/uploads/2023/05/Peugeot-9X8-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/05/4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Peugeot 9x8 Hypercar</div><div class="card-set">#42156</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="new guardians ship 76255" href="https://geckobricks.com/wp-content/uploads/2023/06/New-Gaurdians-Ship-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/06/10-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">New Guardians Ship</div><div class="card-set">#76255</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ucs x wing 75355" href="https://geckobricks.com/wp-content/uploads/2023/06/USC-X-Wing-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/06/7-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ucs X Wing</div><div class="card-set">#75355</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="yoda 75255" href="https://geckobricks.com/wp-content/uploads/2023/07/Yoda-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/07/DSC_0730-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Yoda</div><div class="card-set">#75255</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="camper van 10220 10279" href="https://geckobricks.com/wp-content/uploads/2023/07/Camper-van-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/07/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Camper Van</div><div class="card-set">#10220 / 10279</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="up scaled minifigure 40649" href="https://geckobricks.com/wp-content/uploads/2023/07/Up-Scaled-Minifigure-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/07/2-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Up Scaled Minifigure</div><div class="card-set">#40649</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="pirate snub fighter 75346" href="https://geckobricks.com/wp-content/uploads/2024/01/Snub-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-7-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Pirate Snub Fighter</div><div class="card-set">#75346</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="mars rover perseverance 42158" href="https://geckobricks.com/wp-content/uploads/2023/07/Mars-Rover-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/07/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mars Rover Perseverance</div><div class="card-set">#42158</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="the justifier 75323" href="https://geckobricks.com/wp-content/uploads/2023/07/Justifier-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/07/2-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">The Justifier</div><div class="card-set">#75323</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="bb 8 75187" href="https://geckobricks.com/wp-content/uploads/2023/07/BB-8-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/07/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Bb 8</div><div class="card-set">#75187</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="1961 chevrolet corvette 10321" href="https://geckobricks.com/wp-content/uploads/2024/04/1961-Corvette-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/04/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Chevrolet Corvette</div><div class="card-set">#1961 / 10321</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="1989 batmobile 76139" href="https://geckobricks.com/wp-content/uploads/2025/03/1989-batmobile-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/08/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Batmobile</div><div class="card-set">#1989 / 76139</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ucs a wing 75275" href="https://geckobricks.com/wp-content/uploads/2023/10/A-wing-UCS-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/10/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ucs A Wing</div><div class="card-set">#75275</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="lamborghini huracan 42161" href="https://geckobricks.com/wp-content/uploads/2023/10/Huracan-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/10/3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Lamborghini Huracan</div><div class="card-set">#42161</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="up house 43217" href="https://geckobricks.com/wp-content/uploads/2023/10/Up-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/10/3-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Up House</div><div class="card-set">#43217</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="concorde 10318" href="https://geckobricks.com/wp-content/uploads/2023/12/Concord-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/10/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Concorde</div><div class="card-set">#10318</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="chewbacca 75371" href="https://geckobricks.com/wp-content/uploads/2023/10/Chewbacca-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/10/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Chewbacca</div><div class="card-set">#75371</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="imperial shuttle 75302" href="https://geckobricks.com/wp-content/uploads/2023/11/Imperial-Shuttle-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/11/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Imperial Shuttle</div><div class="card-set">#75302</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ahsokas t6 shuttle 75362" href="https://geckobricks.com/wp-content/uploads/2023/11/T6-Shuttle-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/11/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ahsokas T6 Shuttle</div><div class="card-set">#75362</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ghost phantom ii 75375" href="https://geckobricks.com/wp-content/uploads/2023/11/Ghost-Phantom-II-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/11/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ghost Phantom Ii</div><div class="card-set">#75375</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="piranha plant 71426" href="https://geckobricks.com/wp-content/uploads/2023/11/Piranha-Plant-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/11/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Piranha Plant</div><div class="card-set">#71426</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ucs tie fighter 75309" href="https://geckobricks.com/wp-content/uploads/2023/11/UCS-tie-fighter-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2023/11/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ucs Tie Fighter</div><div class="card-set">#75309</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="yamaha mt 10 42159" href="https://geckobricks.com/wp-content/uploads/2024/01/MT-10-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Yamaha Mt 10</div><div class="card-set">#42159</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="coruscant guard gunship 75354" href="https://geckobricks.com/wp-content/uploads/2024/01/Coruscant-Guard-Gunship-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Coruscant Guard Gunship</div><div class="card-set">#75354</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="shin hatis starfighter 75364" href="https://geckobricks.com/wp-content/uploads/2024/01/Shin-Hatis-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Shin Hatis Starfighter</div><div class="card-set">#75364</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="mandalorian starfighter 75316" href="https://geckobricks.com/wp-content/uploads/2024/01/Mando-Starfighter-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mandalorian Starfighter</div><div class="card-set">#75316</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="e wing 75364" href="https://geckobricks.com/wp-content/uploads/2024/01/E-Wing-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-6-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">E Wing</div><div class="card-set">#75364</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="yoda starfighter 75360" href="https://geckobricks.com/wp-content/uploads/2024/06/Yoda-Star-Fighter-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/06/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Yoda Starfighter</div><div class="card-set">#75360</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="audi e tron 42160" href="https://geckobricks.com/wp-content/uploads/2024/01/Audi-Etron-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/01/1-13-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Audi E Tron</div><div class="card-set">#42160</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="dune ornithopter 10327" href="https://geckobricks.com/wp-content/uploads/2025/03/Ornithopter-wall-mount-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/02/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Dune Ornithopter</div><div class="card-set">#10327</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ucs super star destroyer 10221" href="https://geckobricks.com/wp-content/uploads/2024/03/UCS-SSD-Hor.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/03/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ucs Super Star Destroyer</div><div class="card-set">#10221</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="mercedes f1 42171" href="https://geckobricks.com/wp-content/uploads/2024/04/Mercedes-F1-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/03/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mercedes F1</div><div class="card-set">#42171</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="mclaren mp4 4 senna 10330" href="https://geckobricks.com/wp-content/uploads/2024/03/McLaren-MP44-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/03/4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mclaren Mp4 4 Senna</div><div class="card-set">#10330</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="dune ornithopter flush 10327" href="https://geckobricks.com/wp-content/uploads/2024/04/Ornithopter-flush-wall-mount-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/03/1-5-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Dune Ornithopter Flush</div><div class="card-set">#10327</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="midi millennium falcon 75375" href="https://geckobricks.com/wp-content/uploads/2024/04/Midi-Falcon-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/04/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Midi Millennium Falcon</div><div class="card-set">#75375</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="invisible hand 75377" href="https://geckobricks.com/wp-content/uploads/2025/02/Invisible-hand-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/04/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Invisible Hand</div><div class="card-set">#75377</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="tantive iv 75376" href="https://geckobricks.com/wp-content/uploads/2024/04/Tantive-IV-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/04/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Tantive Iv</div><div class="card-set">#75376</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="midi scale sets" href="https://geckobricks.com/wp-content/uploads/2024/04/midi-scale-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/04/1-4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Midi Scale Sets</div><div class="card-set">#Various</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="auspicious dragon 80112" href="https://geckobricks.com/wp-content/uploads/2024/05/Dragon-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/05/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Auspicious Dragon</div><div class="card-set">#80112</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="t rex skull 76964" href="https://geckobricks.com/wp-content/uploads/2024/05/T.Rex-skull-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/05/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">T Rex Skull</div><div class="card-set">#76964</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="rocket and baby groot 76282" href="https://geckobricks.com/wp-content/uploads/2024/05/Groot-wall-mount-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/05/1-4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Rocket And Baby Groot</div><div class="card-set">#76282</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="venom groot 76249" href="https://geckobricks.com/wp-content/uploads/2024/05/Groot-wall-mount-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/05/1-5-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Venom Groot</div><div class="card-set">#76249</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="aston martin db5 10262" href="https://geckobricks.com/wp-content/uploads/2024/05/Aston-martin-DB5-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/05/1-6-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Aston Martin Db5</div><div class="card-set">#10262</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ucs tie interceptor 75382" href="https://geckobricks.com/wp-content/uploads/2024/06/UCS-Tie-interceptor-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/06/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ucs Tie Interceptor</div><div class="card-set">#75382</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="ucs venator 75367" href="https://geckobricks.com/wp-content/uploads/2024/06/UCS-Venator-Hor.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/06/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ucs Venator</div><div class="card-set">#75367</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="vtol heavy cargo spaceship 42181" href="https://geckobricks.com/wp-content/uploads/2024/07/Heavy-Cargo-spaceship-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/07/6-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Vtol Heavy Cargo Spaceship</div><div class="card-set">#42181</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="droideka 75381" href="https://geckobricks.com/wp-content/uploads/2024/08/Droideka-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/08/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Droideka</div><div class="card-set">#75381</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="neom formula e 42169" href="https://geckobricks.com/wp-content/uploads/2024/08/Neom-FE-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/08/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Neom Formula E</div><div class="card-set">#42169</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="dark falcon 75389" href="https://geckobricks.com/wp-content/uploads/2024/09/Falcon-Instructions-1.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/08/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Dark Falcon</div><div class="card-set">#75389</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="mclaren p1 42172" href="https://geckobricks.com/wp-content/uploads/2024/09/Mclaren-P1-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/09/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mclaren P1</div><div class="card-set">#42172</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="c 3po 75398" href="https://geckobricks.com/wp-content/uploads/2024/09/C3PO-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/09/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">C 3po</div><div class="card-set">#75398</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="r2 d2 75379" href="https://geckobricks.com/wp-content/uploads/2024/09/R2-D2-small-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/09/3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">R2 D2</div><div class="card-set">#75379</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="dobby 76421" href="https://geckobricks.com/wp-content/uploads/2024/09/Dobby-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/09/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Dobby</div><div class="card-set">#76421</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="star destroyer 75394 75055" href="https://geckobricks.com/wp-content/uploads/2024/09/Star-Destroyer-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/09/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Star Destroyer</div><div class="card-set">#75394 / 75055</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="lamborghini countach 10337" href="https://geckobricks.com/wp-content/uploads/2024/09/Countach-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/09/3-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Lamborghini Countach</div><div class="card-set">#10337</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="jaws 21350" href="https://geckobricks.com/wp-content/uploads/2024/09/Diorama-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/09/2-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Jaws</div><div class="card-set">#21350</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="harry potter beasts" href="https://geckobricks.com/wp-content/uploads/2024/09/Harry-Potter-Beasts-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/09/1-4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Harry Potter Beasts</div><div class="card-set">#Various</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="milano 76286" href="https://geckobricks.com/wp-content/uploads/2024/10/Milano-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/10/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Milano</div><div class="card-set">#76286</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="astronaut 31152" href="https://geckobricks.com/wp-content/uploads/2024/10/Astronaut-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/10/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Astronaut</div><div class="card-set">#31152</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="space" data-name="lunar roving vehicle 42182" href="https://geckobricks.com/wp-content/uploads/2024/10/LRV-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/10/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Lunar Roving Vehicle</div><div class="card-set">#42182</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="classic batmobile 76328" href="https://geckobricks.com/wp-content/uploads/2024/10/Classic-batmobile-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/10/1-3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Classic Batmobile</div><div class="card-set">#76328</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="koenigsegg jesko 42173 42184" href="https://geckobricks.com/wp-content/uploads/2025/04/Jesko-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/11/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Koenigsegg Jesko</div><div class="card-set">#42173 / 42184</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ac75 yacht 42174" href="https://geckobricks.com/wp-content/uploads/2024/11/AC75-Yacht-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/11/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ac75 Yacht</div><div class="card-set">#42174</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="other" data-name="bumblebee 10338" href="https://geckobricks.com/wp-content/uploads/2024/12/Bumblebee-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🧱</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/12/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Bumblebee</div><div class="card-set">#10338</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="x jet 76281" href="https://geckobricks.com/wp-content/uploads/2024/12/X-Jet-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2024/12/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">X Jet</div><div class="card-set">#76281</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="kawasaki h2r 42170" href="https://geckobricks.com/wp-content/uploads/2025/01/H2R-Instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/01/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Kawasaki H2r</div><div class="card-set">#42170</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="sarlacc and desert skiff 75396" href="https://geckobricks.com/wp-content/uploads/2025/01/Sarlacc-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/01/1-2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Sarlacc And Desert Skiff</div><div class="card-set">#75396</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="jedi bobs starfighter 75388" href="https://geckobricks.com/wp-content/uploads/2025/05/Jedi-Bobs-Starfighter-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/05/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Jedi Bobs Starfighter</div><div class="card-set">#75388</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="ferrari f1 42207" href="https://geckobricks.com/wp-content/uploads/2025/03/Ferrari-F1-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/03/1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Ferrari F1</div><div class="card-set">#42207</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="red bull f1 42206" href="https://geckobricks.com/wp-content/uploads/2025/03/Red-Bull-F1-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/03/1-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Red Bull F1</div><div class="card-set">#42206</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="mercedes amg g500" href="https://geckobricks.com/wp-content/uploads/2025/03/Red-Bull-F1-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/03/7-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Mercedes Amg G500</div><div class="card-set">#Various</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="marvel" data-name="thors hammer 76209" href="https://geckobricks.com/wp-content/uploads/2025/03/Thoirs-Hammer-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🦸</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/03/IMG_1650.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Thors Hammer</div><div class="card-set">#76209</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="grogu with pram 75403" href="https://geckobricks.com/wp-content/uploads/2025/03/Grogu-With-Pram-instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/03/2-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Grogu With Pram</div><div class="card-set">#75403</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="toyota supra mk4 42204" href="https://geckobricks.com/wp-content/uploads/2025/04/Toyota-Supra-MK4-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/04/2.png" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Toyota Supra Mk4</div><div class="card-set">#42204</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="cars" data-name="chevrolet corvette stingray 42205" href="https://geckobricks.com/wp-content/uploads/2025/04/Corvette-Stingray-Instructions.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🏎️</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/04/4-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Chevrolet Corvette Stingray</div><div class="card-set">#42205</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="home one starcruiser 75405" href="https://geckobricks.com/wp-content/uploads/2025/04/Home-One-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/04/4-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Home One Starcruiser</div><div class="card-set">#75405</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+    <a class="card" data-cat="star-wars" data-name="acclamator class assault ship 75404" href="https://geckobricks.com/wp-content/uploads/2025/04/Acclamator-instructions-.pdf" target="_blank">
+      <div class="card-img-wrap"><div class="card-img-icon">🚀</div><img class="card-img" src="https://geckobricks.com/wp-content/uploads/2025/04/3-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="card-body"><div class="card-title">Acclamator Class Assault Ship</div><div class="card-set">#75404</div><div class="card-dl">⬇ Download PDF</div></div>
+    </a>
+
+    <div class="no-results" id="no-results">No sets found matching your search.</div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 BrickXcessories · All 3D prints made in the USA · <a href="https://www.etsy.com/shop/BrickXcessories" target="_blank" rel="noopener">Shop on Etsy</a></p>
+</footer>
+
+<script>
+  document.querySelectorAll('.card-img').forEach(img => {
+    img.addEventListener('error', function() { this.classList.add('broken'); });
+  });
+
+  const cards = document.querySelectorAll('.card[data-cat]');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const searchInput = document.getElementById('search');
+  const noResults = document.getElementById('no-results');
+  const resultsLabel = document.getElementById('results-label');
+  const catLabels = { all: 'All Instructions', 'star-wars': 'Star Wars', space: 'Space & NASA', marvel: 'Marvel', cars: 'Cars & Bikes', other: 'Other Sets' };
+
+  let activeCat = 'all', searchVal = '';
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const show = (activeCat === 'all' || card.dataset.cat === activeCat) && card.dataset.name.includes(searchVal);
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+    resultsLabel.textContent = (searchVal ? `Search: "${searchVal}"` : catLabels[activeCat]) + ` (${visible})`;
+  }
+
+  filterBtns.forEach(btn => btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    applyFilters();
+  }));
+
+  searchInput.addEventListener('input', () => { searchVal = searchInput.value.trim().toLowerCase(); applyFilters(); });
+  applyFilters();
+</script>
+</body>
+</html>
